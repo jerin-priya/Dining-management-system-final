@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 export interface Menu {
   state: string;
@@ -8,17 +8,17 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'dashboard', name: 'Dashboard', icon: 'dashboard', role: '' },
+  { state: "dashboard", name: "ড্যাশবোর্ড", icon: "dashboard", role: "" },
+  { state: "order", name: "অর্ডার করুন", icon: "list_alt", role: "" },
+  { state: "bill", name: "বিল সমূহ", icon: "money", role: "" },
+  { state: "user", name: "ছাত্রী তালিকা", icon: "people", role: "admin" },
   {
-    state: 'category',
-    name: 'Manage Categories',
-    icon: 'category',
-    role: 'admin',
+    state: "category",
+    name: "খাবার বিভাগ",
+    icon: "category",
+    role: "admin",
   },
-  { state: 'product', name: 'Manage Products', icon: 'grass', role: 'admin' },
-  { state: 'order', name: 'Manage Orders', icon: 'list_alt', role: '' },
-  { state: 'bill', name: 'View Bills', icon: 'money', role: '' },
-  { state: 'user', name: 'Manage Users', icon: 'people', role: 'admin' },
+  { state: "product", name: " খাবার তালিকা ", icon: "grass", role: "admin" },
 ];
 
 @Injectable()

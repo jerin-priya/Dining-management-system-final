@@ -32,12 +32,12 @@ export class RouteGuardService {
     let checkRole = false;
 
     for (let role of expectedRoleArray) {
-      if (role === tokenPayload.role) {
+      if (role == tokenPayload.role) {
         checkRole = true;
       }
     }
 
-    if (tokenPayload.role === 'user' || tokenPayload.role === 'admin') {
+    if (tokenPayload.role == 'user' || tokenPayload.role == 'admin') {
       if (this.auth.isAuthenticated() && checkRole) {
         return true;
       }

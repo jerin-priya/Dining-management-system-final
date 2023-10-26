@@ -2,95 +2,6 @@
   box-sizing: border-box;
 }
 
-/* Style the body */
-body {
-  font-family: Arial;
-  margin: 0;
-}
-
-/* Header/logo Title */
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-}
-
-/* Style the top navigation bar */
-.navbar {
-  display: flex;
-  background-color: #333;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  transition: background-color 0.3s ease;
-}
-
-/* Style the navigation bar links */
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  text-align: center;
-  transition: color 0.3s ease;
-}
-
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Column container */
-.row {  
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-/* Main column */
-.main {
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
-}
-
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Footer */
-.footer {
-  padding: 6px;
-  text-align: center;
-  color: white;
-  background: #e53935;
-}
-
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-// @media screen and (max-width: 400px) {
-//   .row, .navbar {   
-//     flex-direction: column;
-//   }
-// }
-
-* {
-  box-sizing: border-box;
-}
-
 /* Container for flexboxes */
 .row {
   display: flex;
@@ -103,12 +14,12 @@ body {
   padding: 20px;
 }
 
-/* On screens that are 992px wide or less, go from four columns to two columns */
-@media screen and (max-width: 10px) {
-  .column {
-    flex: 50%;
-  }
-}
+/* On screens that are 1440px wide or less, go from four columns to two columns */
+// @media (max-width: 1440px) {
+//   .column {
+//     flex: 50%;
+//   }
+// }
 
 body {
   background-color: #384047;
@@ -118,7 +29,7 @@ body {
   height: 65px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   background-color: #db6d0c;
 }
 
@@ -150,7 +61,7 @@ a {
 }
 
 a::after {
-  content:"";
+  content: "";
   top: 80%;
   border-bottom: 2px solid #F8E71C;
   transition: all 0.35s;
@@ -171,28 +82,28 @@ a:hover::after {
   left: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 850px) {
   .wrapper {
     height: auto;
   }
-  
+
   nav {
     flex-direction: column;
     align-items: center;
   }
-  
+
   a.logo {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     margin-right: 0px;
   }
-  
+
   ul {
     width: 100%;
     margin-bottom: 1em;
     justify-content: space-between;
   }
-  
+
   ul li a {
     margin-left: 0px;
   }
@@ -202,16 +113,16 @@ a:hover::after {
   a.logo {
     margin: 1.5em;
   }
-  
+
   ul {
     flex-direction: column;
   }
-  
+
   ul li {
     margin: 0.3em;
     text-align: center;
   }
-  
+
   ul li a {
     margin-left: 0px;
   }
@@ -228,19 +139,19 @@ a:hover::after {
   vertical-align: middle;
 }
 .bg-image {
-  height: 100vh; 
-  
+  height: 100vh;
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  animation: imageSlideshow 20s infinite; 
+  animation: imageSlideshow 20s infinite;
 }
 
 /* Position text in the middle of the page/image */
 .bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.8); /* Black w/opacity/see-through */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
@@ -248,12 +159,10 @@ a:hover::after {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // z-index: 2;
   width: 55%;
   padding: 20px;
   text-align: center;
 }
-
 
 /* Keyframe animation for background image slideshow */
 @keyframes imageSlideshow {
@@ -273,11 +182,6 @@ a:hover::after {
     background-image: url("../../assets/img/2.jpeg"); /* Loop back to the first image */
   }
 }
-
-
-
-
-
 
 /* Logo style */
 a.logo {
@@ -303,4 +207,3 @@ a.logo:hover {
   background-color: #6e9aed; /* Change the background color when sticky */
   transition: background-color 0.3s ease;
 }
-

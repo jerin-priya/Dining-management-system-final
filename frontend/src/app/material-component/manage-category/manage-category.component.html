@@ -1,13 +1,13 @@
 <mat-card>
   <b>
-    <span>Manage Categories</span>
+    <span>খাবার বিভাগ পরিচালনা করুন</span>
     <button
-      mat-flat-button
+      mat-flat-button 
       color="primary"
       class="float-right"
       (click)="handleAddAction()"
     >
-      Add Category
+      তালিকা যোগ করুন
     </button>
   </b>
 </mat-card>
@@ -23,12 +23,13 @@
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>নাম</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <th mat-header-cell *matHeaderCellDef>
+        পরিবর্তন করুন</th>
       <td mat-cell *matCellDef="let element" class="action-link">
         <button
           mat-icon-button
