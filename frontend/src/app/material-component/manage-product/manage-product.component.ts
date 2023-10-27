@@ -16,11 +16,11 @@ import { ProductComponent } from '../dialog/product/product.component';
 })
 export class ManageProductComponent implements OnInit {
   displayedColumns: string[] = [
-    'নাম',
-    'খাবারের তালিকা',
-    'খাবারের বিবরণ',
-    'মূল্য',
-    'পরিবর্তন',
+    'name',
+    'category',
+    'description',
+    'price',
+    'edit',
   ];
   dataSource: any;
   responseMessage: any;
