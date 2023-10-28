@@ -1,0 +1,23 @@
+.float-right{
+  float: right;
+}
+
+mat-card{
+  padding: 20px;
+}
+
+table{
+  margin-top: 5px;
+  width: 100%;
+}
+.responsive_table {
+  margin-top: 5px;
+  width: 105vw; /* Set the width to 100% of the viewport width */
+  height: 104vh; /* Set the height to 100% of the viewport height */
+  overflow: auto; /* Add scrolling if necessary */
+}
+
+table {
+  width: 20%; /* Set the table width to 20% of the parent element (which is now 100vw) */
+  height: 20%; /* Set the table height to 20% of the parent element (which is now 100vh) */
+}

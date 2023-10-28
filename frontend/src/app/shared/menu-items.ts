@@ -24,6 +24,7 @@ const MENUITEMS = [
     role: "user",
   },
   { state: "productUser", name: " খাবার তালিকা ", icon: "grass", role: "user" },
+  { state: "billUser", name: "আমার বিল সমূহ", icon: "money", role: "user" },
   { state: "user", name: "ছাত্রী তালিকা", icon: "people", role: "admin" },
   { state: "bill", name: "বিল সমূহ", icon: "money", role: "admin" },
 ];

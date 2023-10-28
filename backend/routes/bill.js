@@ -121,6 +121,24 @@ router.get("/getBills", auth.authenticate, (req, res, next) => {
   });
 });
 
+router.get("/getUserBills", auth.authenticate, (req, res, next) => {
+  const email = req.query.email;
+
+  if (!email) {
+    return res.status(400).json({ error: "Email parameter is required." });
+  }
+
+  const query = "SELECT * FROM bill WHERE email = ? ORDER BY id DESC";
+  connection.query(query, [email], (err, results) => {
+    if (!err) {
+      return res.status(200).json({ data: results });
+    } else {
+      return res.status(500).json({ error: err });
+    }
+  });
+});
+
+
 router.delete("/delete/:id", auth.authenticate, (req, res, next) => {
   const id = req.params.id;
   let query = "delete from bill where id=?";

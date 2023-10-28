@@ -8,6 +8,7 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
 import { ManageCategoryUserComponent } from './manage-category-user/manage-category-user.component';
 import { ManageProductUserComponent } from './manage-product-user/manage-product-user.component';
+import { ViewBillUserComponent } from './view-bill-user/view-bill-user.component';
 
 export const MaterialRoutes: Routes = [
   {
@@ -55,7 +56,15 @@ export const MaterialRoutes: Routes = [
     component: ViewBillComponent,
     canActivate: [RouteGuardService],
     data: {
-      expectedRole: ['admin', 'user'],
+      expectedRole: ['admin'],
+    },
+  },
+  {
+    path: 'billUser',
+    component: ViewBillUserComponent,
+    canActivate: [RouteGuardService],
+    data: {
+      expectedRole: ['user'],
     },
   },
   {

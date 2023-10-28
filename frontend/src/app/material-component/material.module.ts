@@ -21,6 +21,7 @@ import { ViewBillComponent } from './view-bill/view-bill.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { ManageCategoryUserComponent } from './manage-category-user/manage-category-user.component';
 import { ManageProductUserComponent } from './manage-product-user/manage-product-user.component';
+import { ViewBillUserComponent } from './view-bill-user/view-bill-user.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { ManageProductUserComponent } from './manage-product-user/manage-product
     ViewBillComponent,
     ManageUserComponent,
     ManageCategoryUserComponent,
-    ManageProductUserComponent    
+    ManageProductUserComponent,
+    ViewBillUserComponent    
   ]
 })
 export class MaterialComponentsModule {}
