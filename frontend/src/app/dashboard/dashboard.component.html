@@ -10,7 +10,7 @@
           <h2 class="title">Total Category:</h2>
           <h1 class="title">{{ data?.category }}</h1>
           <p>
-            <button class="button" [routerLink]="['/cafe/categoryUser']">
+            <button class="button" [routerLink]="isAdmin ? '/cafe/category' : '/cafe/categoryUser'">
               View Categories
             </button>
           </p>
@@ -24,7 +24,7 @@
             <h2 class="title">Total Products:</h2>
             <h1 class="title">{{ data?.product }}</h1>
             <p>
-              <button class="button" [routerLink]="['/cafe/productUser']">
+              <button class="button" [routerLink]="isAdmin ? '/cafe/product' : '/cafe/productUser'">
                 View Products
               </button>
             </p>
@@ -38,7 +38,7 @@
             <h2 class="title">Total Bills:</h2>
             <h1 class="title">{{ data?.bill }}</h1>
             <p>
-              <button class="button" [routerLink]="['/cafe/bill']">
+              <button class="button" [routerLink]="isAdmin ? '/cafe/bill' : '/cafe/billUser'">
                 View Bills
               </button>
             </p>
