@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.post("/add", auth.authenticate, role.checkRole, (req, res, next) => {
   let category = req.body;
-  let query = "insert into category (name) values(?)";
-  connection.query(query, [category.name], (err, results) => {
+  let query = "INSERT INTO category (name, image, description) VALUES (?, ?, ?)";
+  connection.query(query, [category.name, category.image, category.description], (err, results) => {
     if (!err) {
       return res.status(200).json({ message: "Category added successfully" });
     } else {
@@ -16,6 +16,7 @@ router.post("/add", auth.authenticate, role.checkRole, (req, res, next) => {
     }
   });
 });
+
 
 router.get("/get", (req, res, next) => {
   let query = "select * from category order by name";

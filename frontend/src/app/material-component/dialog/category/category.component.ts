@@ -51,6 +51,8 @@ export class CategoryComponent implements OnInit {
     let formData = this.categoryForm.value;
     let data = {
       name: formData.name,
+      image: formData.image,
+      description: formData.description,
     };
 
     this.categoryService.add(data).subscribe(
@@ -77,6 +79,8 @@ export class CategoryComponent implements OnInit {
     let data = {
       id: this.dialogData.data.id,
       name: formData.name,
+      image: formData.image,
+      description: formData.description,
     };
 
     this.categoryService.update(data).subscribe(
