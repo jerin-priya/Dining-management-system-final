@@ -15,7 +15,7 @@ router.post("/add", auth.authenticate, role.checkRole, (req, res) => {
     [product.name, product.categoryID, product.description, product.price, product.imageURL],
     (err, results) => {
       if (!err) {
-        return res.status(200).json({ message: "Product added successfully" });
+        return res.status(200).json({ message: "খাবারটি সফলভাবে যোগ করা হয়েছে" });
       } else {
         return res.status(500).json({ err });
       }
@@ -71,9 +71,9 @@ router.patch("/update", auth.authenticate, role.checkRole, (req, res, next) => {
     (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
-          return res.status(404).json({ message: "Product ID not found" });
+          return res.status(404).json({ message: "আইটেমটি খুঁজে পাওয়া যায় নি" });
         }
-        return res.status(200).json({ message: "Product updated successfully" });
+        return res.status(200).json({ message: "আইটেমটি সফলভাবে আপডেট করা হয়েছে" });
       } else {
         return res.status(500).json({ err });
       }
@@ -92,11 +92,11 @@ router.delete(
     connection.query(query, [id], (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
-          return res.status(404).json({ message: "Product ID not found" });
+          return res.status(404).json({ message: "আইটেমটি খুঁজে পাওয়া যায় নি" });
         }
         return res
           .status(200)
-          .json({ message: "Product deleted successfully" });
+          .json({ message: "আইটেমটি সফলভাবে মুছে ফেলা হয়েছে" });
       } else {
         return res.status(500).json({ err });
       }
@@ -114,11 +114,11 @@ router.patch(
     connection.query(query, [product.status, product.id], (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
-          return res.status(404).json({ message: "Product ID not found" });
+          return res.status(404).json({ message: "আইটেমটি খুঁজে পাওয়া যায় নি" });
         }
         return res
           .status(200)
-          .json({ message: "Product status has been updated successfully" });
+          .json({ message: "আইটেমটি সফলভাবে যুক্ত করা হয়েছে" });
       } else {
         return res.status(500).json({ err });
       }

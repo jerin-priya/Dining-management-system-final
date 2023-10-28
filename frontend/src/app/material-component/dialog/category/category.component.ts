@@ -29,15 +29,21 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryForm = this.fb.group({
       name: [null, [Validators.required]],
-      imageURL:[null]
+      description: [null],
+      image: [null], // Add an image field in your form
     });
-
+  
     if (this.dialogData.action === 'Edit') {
       this.dialogAction = 'Edit';
       this.action = 'Update';
-      this.categoryForm.patchValue(this.dialogData.data);
+      this.categoryForm.patchValue({
+        name: this.dialogData.data.name,
+        description: this.dialogData.data.description,
+        image: this.dialogData.data.image,
+      });
     }
   }
+  
 
   handleSubmit() {
     if (this.dialogAction === 'Edit') {

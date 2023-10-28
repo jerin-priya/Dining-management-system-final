@@ -16,7 +16,8 @@ import { CategoryUserService } from 'src/app/services/category-user.service';
   styleUrls: ['./manage-category-user.component.scss']
 })
 export class ManageCategoryUserComponent {
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name', 'image', 'description'];
+
   dataSource: any;
   responseMessage: any;
 

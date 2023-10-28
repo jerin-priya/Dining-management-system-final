@@ -20,6 +20,7 @@ export class ManageProductUserComponent {
   displayedColumns: string[] = [
     'name',
     'category',
+    'image',
     'description',
     'price',
   ];
@@ -40,6 +41,7 @@ export class ManageProductUserComponent {
   tableData() {
     this.productUserService.getProducts().subscribe(
       (resp: any) => {
+        console.log(resp)
         this.ngxService.stop();
         this.dataSource = new MatTableDataSource(resp.data);
       },

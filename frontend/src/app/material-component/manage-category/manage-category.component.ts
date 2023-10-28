@@ -14,7 +14,7 @@ import { CategoryComponent } from '../dialog/category/category.component';
   styleUrls: ['./manage-category.component.scss'],
 })
 export class ManageCategoryComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'edit'];
+  displayedColumns: string[] = ['name', 'description', 'image', 'edit'];
   dataSource: any;
   responseMessage: any;
 

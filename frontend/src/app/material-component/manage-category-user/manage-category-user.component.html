@@ -13,15 +13,26 @@
   </mat-form-field>
 </mat-card>
 
+<!-- manage-category-user.component.html -->
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>নাম</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
-
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>ছবি</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.image" alt="Category Image" width="50" height="50" />
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>বিবরণ</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
+
