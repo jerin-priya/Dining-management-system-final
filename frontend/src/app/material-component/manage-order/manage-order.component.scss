@@ -1,28 +1,34 @@
-mat-form-field{
-    padding: 5px;
+/* Remove spinner buttons for input[type="number"] inside mat-form-field */
+mat-form-field input[type="number"]::-webkit-inner-spin-button,
+mat-form-field input[type="number"]::-webkit-outer-spin-button {
+  display: none;
 }
 
-.float-right{
-    float: right;
+/* Apply padding to mat-form-field */
+mat-form-field {
+  padding: 5px;
 }
 
-mat-card{
-    padding: 20px;
+/* Align elements to the right using the float-right class */
+.float-right {
+  float: right;
 }
 
-table{
-    margin-top: 5px;
-    width: 100%;
+/* Add padding to mat-card */
+mat-card {
+  padding: 20px;
 }
+
+/* Style the responsive table container */
 .responsive_table {
-    margin-top: 5px;
-    width: 105vw; /* Set the width to 100% of the viewport width */
-    height: 104vh; /* Set the height to 100% of the viewport height */
-    overflow: auto; /* Add scrolling if necessary */
-  }
-  
+  margin-top: 5px;
+  width: 100%;
+  height: 100vh; /* Use viewport height for full height */
+  overflow: auto; /* Add scrolling if necessary */
+
+  /* Style the table within the responsive container */
   table {
-    width: 20%; /* Set the table width to 20% of the parent element (which is now 100vw) */
-    height: 20%; /* Set the table height to 20% of the parent element (which is now 100vh) */
+    width: 100%; /* Make the table width 100% of the container */
+    height: 100%; /* Make the table height 100% of the container */
   }
-  
+}
