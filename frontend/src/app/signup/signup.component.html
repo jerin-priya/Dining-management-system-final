@@ -119,7 +119,7 @@
     color="primary"
     type="submit"
     (click)="handleSubmit()"
-     
+    [disabled]="!(signupForm.valid && signupForm.dirty)"
   >
     Signup
   </button>
