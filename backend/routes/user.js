@@ -3,6 +3,7 @@ const connection = require("../connection");
 const { query } = require("../connection");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 
 const auth = require("../services/auth");
@@ -13,32 +14,39 @@ const router = express.Router();
 router.post("/signup", (req, res) => {
   let user = req.body;
 
-  let query = "select email, registrationNo, password, role, department, status from user where email=?";
-  connection.query(query, [user.email], (err, results) => {
-    if (!err) {
-      if (results.length <= 0) {
-        let insertQuery =
-          "insert into user(name, registrationNo, phone, email, department, password, status, role) values(?, ?, ?, ?, ?, ?, 'false', 'user')";
-
-        connection.query(
-          insertQuery,
-          [user.name, user.registrationNo, user.phone, user.email, user.department, user.password],
-          (err, results) => {
-            if (!err) {
-              return res.status(200).json({
-                message: "Successfully registered",
-              });
-            } else {
-              return res.status(500).json({ err });
-            }
-          }
-        );
-      } else {
-        return res.status(400).json({ message: "Email already exists" });
-      }
-    } else {
-      return res.status(500).json({ err });
+  // Hash the user's password before storing it in the database
+  bcrypt.hash(user.password, 10, (hashErr, hashedPassword) => {
+    if (hashErr) {
+      return res.status(500).json({ error: "Password hashing failed" });
     }
+
+    let query = "select email, registrationNo, password, role, department, status from user where email=?";
+    connection.query(query, [user.email], (err, results) => {
+      if (!err) {
+        if (results.length <= 0) {
+          let insertQuery =
+            "insert into user(name, registrationNo, phone, email, department, password, status, role) values(?, ?, ?, ?, ?, ?, 'false', 'user')";
+
+          connection.query(
+            insertQuery,
+            [user.name, user.registrationNo, user.phone, user.email, user.department, hashedPassword], // Store the hashed password
+            (err, results) => {
+              if (!err) {
+                return res.status(200).json({
+                  message: "Successfully registered",
+                });
+              } else {
+                return res.status(500).json({ err });
+              }
+            }
+          );
+        } else {
+          return res.status(400).json({ message: "Email already exists" });
+        }
+      } else {
+        return res.status(500).json({ err });
+      }
+    });
   });
 });
 
@@ -49,29 +57,36 @@ router.post("/login", (req, res) => {
   let query = "select email, password, role, status from user where email=?";
   connection.query(query, [user.email], (err, results) => {
     if (!err) {
-      if (results.length <= 0 || results[0].password !== user.password) {
+      if (results.length <= 0) {
         return res.status(401).json({ message: "Incorrect username/password" });
       } else if (results[0].status === "false") {
         return res.status(401).json({ message: "Await admin approval" });
-      } else if (results[0].password === user.password) {
-        const response = {
-          email: results[0].email,
-          role: results[0].role,
-        };
-
-        const accessToken = jwt.sign(response, process.env.SECRET, {
-          expiresIn: "1h",
-        });
-
-        res.status(200).json({
-          token: accessToken,
-          message: "User logged in",
-        });
-      } else {
-        return res
-          .status(400)
-          .json({ message: "Something went wrong. Please try again!" });
       }
+
+      // Compare the hashed password with the provided password
+      bcrypt.compare(user.password, results[0].password, (compareErr, isMatch) => {
+        if (compareErr) {
+          return res.status(500).json({ error: "Password comparison failed" });
+        }
+
+        if (!isMatch) {
+          return res.status(401).json({ message: "Incorrect username/password" });
+        } else {
+          const response = {
+            email: results[0].email,
+            role: results[0].role,
+          };
+
+          const accessToken = jwt.sign(response, process.env.SECRET, {
+            expiresIn: "1h",
+          });
+
+          res.status(200).json({
+            token: accessToken,
+            message: "User logged in",
+          });
+        }
+      });
     } else {
       return res.status(500).json({ err });
     }

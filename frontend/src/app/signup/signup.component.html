@@ -80,7 +80,6 @@
       
       <mat-form-field appearance="fill" fxFlex>
         <mat-label>Department</mat-label>
-        <!-- <input type="text" matInput formControlName="department" required /> -->
         <mat-select formControlName="department" required>
           <mat-option *ngFor="let department of departmentOptions" [value]="department">
             {{ department }}
@@ -88,18 +87,14 @@
         </mat-select>
         <mat-error
           *ngIf="
-            signupForm.controls.contactNumber.touched &&
-            signupForm.controls.contactNumbervalid
+            signupForm.controls.department.touched &&
+            signupForm.controls.department.invalid
           "
         >
-          <span *ngIf="signupForm.controls.contactNumber.errors.required"
-            >This field is mandatory</span
-          >
-          <span *ngIf="signupForm.controls.contactNumber.errors.pattern"
-            >This field is invalid</span
-          >
+          <span *ngIf="signupForm.controls.department.errors.required">This field is mandatory</span>
         </mat-error>
       </mat-form-field>
+      
 
       <mat-form-field appearance="fill" fxFlex>
         <mat-label>Password</mat-label>
