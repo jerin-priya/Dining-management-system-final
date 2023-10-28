@@ -18,6 +18,12 @@ const MENUITEMS = [
     icon: "category",
     role: "admin",
   },
+  {
+    state: "categoryUser",
+    name: "খাবার বিভাগ",
+    icon: "category",
+    role: "user",
+  },
   { state: "product", name: " খাবার তালিকা ", icon: "grass", role: "admin" },
 ];
 
