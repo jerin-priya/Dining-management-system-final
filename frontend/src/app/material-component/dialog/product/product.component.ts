@@ -37,6 +37,7 @@ export class ProductComponent implements OnInit {
       ],
       categoryId: [null, [Validators.required]],
       price: [null, [Validators.required]],
+      imageURL:[null],
       description: [null, [Validators.required]],
     });
 
@@ -80,6 +81,7 @@ export class ProductComponent implements OnInit {
       categoryID: formData.categoryId,
       price: formData.price,
       description: formData.description,
+      imageURL:formData.imageURL
     };
 
     this.productService.add(data).subscribe(
@@ -109,6 +111,7 @@ export class ProductComponent implements OnInit {
       categoryID: formData.categoryId,
       price: formData.price,
       description: formData.description,
+      imageURL:formData.imageURL
     };
 
     this.productService.update(data).subscribe(

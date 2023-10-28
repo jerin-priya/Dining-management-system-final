@@ -8,11 +8,11 @@ const router = express.Router();
 router.post("/add", auth.authenticate, role.checkRole, (req, res) => {
   let product = req.body;
   let query =
-    'insert into product (name, categoryID, description, price, status) values(?,?,?,?,"true")';
+    'insert into product (name, categoryID, description, price, imageURL, status) values(?,?,?,?,?, "true")';
 
   connection.query(
     query,
-    [product.name, product.categoryID, product.description, product.price],
+    [product.name, product.categoryID, product.description, product.price, product.imageURL],
     (err, results) => {
       if (!err) {
         return res.status(200).json({ message: "Product added successfully" });
@@ -23,9 +23,10 @@ router.post("/add", auth.authenticate, role.checkRole, (req, res) => {
   );
 });
 
+
 router.get("/get", auth.authenticate, (req, res, next) => {
   let query =
-    "select p.id, p.name, p.description, p.price, p.status, c.id as categoryID, c.name as categoryName from product as p INNER JOIN category as c where p.categoryID=c.id ";
+    "select p.id, p.name, p.description, p.price, p.status, p.imageURL,c.id as categoryID, c.name as categoryName from product as p INNER JOIN category as c where p.categoryID=c.id ";
   connection.query(query, (err, results) => {
     if (!err) {
       return res.status(200).json({ data: results });
@@ -63,30 +64,23 @@ router.get("/getByID/:id", (req, res, next) => {
 router.patch("/update", auth.authenticate, role.checkRole, (req, res, next) => {
   let product = req.body;
   let query =
-    "update product set name=?, categoryID=?, description=?, price=?, where id=?";
+    "update product set name=?, categoryID=?, description=?, price=?, imageURL=? where id=?";
   connection.query(
     query,
-    [
-      product.name,
-      product.categoryID,
-      product.description,
-      product.price,
-      product.id,
-    ],
+    [product.name, product.categoryID, product.description, product.price, product.imageURL, product.id],
     (err, results) => {
       if (!err) {
         if (results.affectedRows == 0) {
           return res.status(404).json({ message: "Product ID not found" });
         }
-        return res
-          .status(200)
-          .json({ message: "product updated successfully" });
+        return res.status(200).json({ message: "Product updated successfully" });
       } else {
         return res.status(500).json({ err });
       }
     }
   );
 });
+
 
 router.delete(
   "/delete/:id",

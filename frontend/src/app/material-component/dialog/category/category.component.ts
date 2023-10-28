@@ -29,6 +29,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryForm = this.fb.group({
       name: [null, [Validators.required]],
+      imageURL:[null]
     });
 
     if (this.dialogData.action === 'Edit') {

@@ -18,6 +18,7 @@ export class ManageProductComponent implements OnInit {
   displayedColumns: string[] = [
     'name',
     'category',
+    'image',
     'description',
     'price',
     'edit',
@@ -43,6 +44,7 @@ export class ManageProductComponent implements OnInit {
       (resp: any) => {
         this.ngxService.stop();
         this.dataSource = new MatTableDataSource(resp.data);
+        console.log(resp.data); 
       },
       (error) => {
         this.ngxService.stop();
@@ -55,6 +57,7 @@ export class ManageProductComponent implements OnInit {
       }
     );
   }
+  
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

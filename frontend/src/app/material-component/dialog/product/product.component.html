@@ -64,7 +64,18 @@
           </mat-error>
         </mat-form-field>
       </div>
-
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input type="text" matInput formControlName="imageURL" required />
+          <mat-error
+            *ngIf="productForm.controls.imageURL.touched && productForm.controls.imageURL.invalid"
+          >
+            <span *ngIf="productForm.controls.imageURL.errors.required">This field is mandatory</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill">
           <mat-label>Description</mat-label>
