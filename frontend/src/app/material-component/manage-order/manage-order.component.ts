@@ -173,29 +173,20 @@ export class ManageOrderComponent implements OnInit {
 
   add() {
     let formData = this.manageOrderForm.value;
-    let productName = this.dataSource.find(
-      (e: { id: number; }) => e.id == formData.product.id
-    );
-    if (productName === undefined) {
-      this.totalAmount += formData.total;
-      this.dataSource.push({
-        id: formData.product.id,
-        name: formData.product.name,
-        category: formData.category.name,
-        quantity: formData.quantity,
-        price: formData.price,
-        total: formData.total,
-      });
-
-      this.dataSource = [...this.dataSource];
-      this.snackBar.openSnackBar(GlobalConstants.productAdded, 'success');
-    } else {
-      this.snackBar.openSnackBar(
-        GlobalConstants.productExistError,
-        GlobalConstants.error
-      );
-    }
+    this.totalAmount += formData.total;
+    this.dataSource.push({
+      id: formData.product.id,
+      name: formData.product.name,
+      category: formData.category.name,
+      quantity: formData.quantity,
+      price: formData.price,
+      total: formData.total,
+    });
+  
+    this.dataSource = [...this.dataSource];
+    this.snackBar.openSnackBar(GlobalConstants.productAdded, 'success');
   }
+  
 
   handleDeletAction(value: any, element: any) {
     this.totalAmount -= element.total;
