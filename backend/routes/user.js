@@ -33,7 +33,7 @@ router.post("/signup", (req, res) => {
             (err, results) => {
               if (!err) {
                 return res.status(200).json({
-                  message: "Successfully registered",
+                  message: "রেজিস্ট্রেশন সফলভাবে সম্পন্ন হয়েছে",
                 });
               } else {
                 return res.status(500).json({ err });
@@ -41,7 +41,7 @@ router.post("/signup", (req, res) => {
             }
           );
         } else {
-          return res.status(400).json({ message: "Email already exists" });
+          return res.status(400).json({ message: "ইমেইলটি দিয়ে পূর্বে রেজিষ্ট্রেশন করা হয়েছিল। দয়া করে অন্য মেইল দিয়ে পুনরায় আবারো চেষ্টা করুন।" });
         }
       } else {
         return res.status(500).json({ err });
@@ -58,19 +58,19 @@ router.post("/login", (req, res) => {
   connection.query(query, [user.email], (err, results) => {
     if (!err) {
       if (results.length <= 0) {
-        return res.status(401).json({ message: "Incorrect username/password" });
+        return res.status(401).json({ message: "ব্যবহারকারীর কোথাও নাম/পাসওয়ার্ড এ ভুল হয়েছে। দয়া করে পুনরায় আবারো চেষ্টা করুন।" });
       } else if (results[0].status === "false") {
-        return res.status(401).json({ message: "Await admin approval" });
+        return res.status(401).json({ message: "অ্যাডমিন অনুমোদনের জন্য অপেক্ষা করুন!" });
       }
 
       // Compare the hashed password with the provided password
       bcrypt.compare(user.password, results[0].password, (compareErr, isMatch) => {
         if (compareErr) {
-          return res.status(500).json({ error: "Password comparison failed" });
+          return res.status(500).json({ error: "পাসওয়ার্ড তুলনা ব্যর্থ হয়েছে" });
         }
 
         if (!isMatch) {
-          return res.status(401).json({ message: "Incorrect username/password" });
+          return res.status(401).json({ message: "ব্যবহারকারীর কোথাও নাম/পাসওয়ার্ড এ ভুল হয়েছে। দয়া করে পুনরায় আবারো চেষ্টা করুন।" });
         } else {
           const response = {
             email: results[0].email,
@@ -83,7 +83,7 @@ router.post("/login", (req, res) => {
 
           res.status(200).json({
             token: accessToken,
-            message: "User logged in",
+            message: "অভিনন্দন! আপনি সফলভাবে লগইন করতে সক্ষম হয়েছেন",
           });
         }
       });
@@ -108,19 +108,19 @@ router.post("/forgotPassword", (req, res) => {
     if (!err) {
       if (results.length <= 0) {
         return res.status(200).json({
-          message: "Password sent to your email",
+          message: "আপনার রেজিস্টার করা ইমেইলে পাসওয়ার্ড পাঠানো হয়েছে। দয়া করে চেক করুন।",
         });
       } else {
         let mailOptions = {
           from: process.env.EMAIL,
           to: results[0].email,
-          subject: "Password retrieval by Jahanara Imam Hall Dining Management System",
+          subject: "জাহানারা ইমাম হল ডাইনিং ম্যানেজমেন্ট সিস্টেম দ্বারা পাসওয়ার্ড পুনরুদ্ধার",
           html:
-            "<p>Your login details for the Jahanara Imam Hall Dining Management System <br> Email: " +
+            "<p>জাহানারা ইমাম হল ডাইনিং ম্যানেজমেন্ট সিস্টেমের জন্য আপনার লগইন বিশদ <br> Email: " +
             results[0].email +
-            "<br> Password: " +
+            "<br> পাসওয়ার্ড: " +
             results[0].password +
-            "<br> <a href='http://localhost:52380'>Click Here to Login</a>" +
+            "<br> <a href='http://localhost:4200'>লগ-ইন করতে এখানে ক্লিক করুন</a>" +
             "</p>",
         };
 
@@ -131,7 +131,7 @@ router.post("/forgotPassword", (req, res) => {
             console.log(info.response);
             console.log(" \n Email sent");
             return res.status(200).json({
-              message: "Password sent to your email",
+              message: "আপনার রেজিস্টার করা ইমেইলে পাসওয়ার্ড পাঠানো হয়েছে। দয়া করে চেক করুন।",
             });
           }
         });
@@ -160,9 +160,9 @@ router.patch("/update", auth.authenticate, role.checkRole, (req, res) => {
   connection.query(query, [user.status, user.id], (err, results) => {
     if (!err) {
       if (results.affectedRows == 0) {
-        return res.status(404).json({ message: "User ID does not exist" });
+        return res.status(404).json({ message: "ব্যবহারকারী আইডি বিদ্যমান নেই" });
       }
-      return res.status(200).json({ message: " User updated successfully" });
+      return res.status(200).json({ message: "ব্যবহারকারী তথ্য সফলভাবে আপডেট করা হয়েছে" });
     } else {
       return res.status(500).json({ err });
     }
@@ -180,14 +180,14 @@ router.post("/changePassword", auth.authenticate, (req, res) => {
   connection.query(query, [email, user.oldPassword], (err, results) => {
     if (!err) {
       if (results.length <= 0) {
-        return res.status(400).json({ message: "Incorrect password" });
+        return res.status(400).json({ message: "ভুল পাসওয়ার্ড" });
       } else if (results[0].password === user.oldPassword) {
         let query = "update user set password=? where email=?";
         connection.query(query, [user.newPassword, email], (err, results) => {
           if (!err) {
             return res
               .status(200)
-              .json({ message: "Password updated successfully" });
+              .json({ message: "পাসওয়ার্ড সফলভাবে আপডেট করা হয়েছে" });
           } else {
             return res.status(500).json({ err });
           }
@@ -195,7 +195,7 @@ router.post("/changePassword", auth.authenticate, (req, res) => {
       } else {
         return res
           .status(400)
-          .json({ message: "Something went wrong!! Please try again" });
+          .json({ message: "কিছু একটা ভুল হয়েছে!! অনুগ্রহপূর্বক আবার চেষ্টা করুন" });
       }
     } else {
       return res.status(500).json({ err });
