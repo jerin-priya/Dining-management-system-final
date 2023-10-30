@@ -8,11 +8,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewBillProductsComponent implements OnInit {
   displayedColumns: string[] = [
-    'name',
-    'category',
-    'price',
-    'quantity',
-    'total',
+    'নাম',
+    'কোন তালিকার',
+    'মূল্য',
+    'পরিমাণ',
+    'মোট মূল্য',
   ];
   dataSource: any = [];
   data: any;

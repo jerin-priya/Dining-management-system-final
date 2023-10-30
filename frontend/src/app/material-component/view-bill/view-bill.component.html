@@ -1,6 +1,6 @@
 <mat-card>
   <b>
-    <span>View Bill</span>
+    <span>বিলসমূহ দেখুন</span>
   </b>
 </mat-card>
 
@@ -16,40 +16,40 @@
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>নাম</th>
       <td mat-cell *matCellDef="let element">{{ element.name | titlecase }}</td>
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <th mat-header-cell *matHeaderCellDef>ইমেইল</th>
       <td mat-cell *matCellDef="let element">
         {{ element.email }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="contactNumber">
-      <th mat-header-cell *matHeaderCellDef>ContactNumber</th>
+      <th mat-header-cell *matHeaderCellDef>যোগাযোগ নম্বর</th>
       <td mat-cell *matCellDef="let element">
         {{ element.contactNumber }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="paymentMethod">
-      <th mat-header-cell *matHeaderCellDef>Payment Method</th>
+      <th mat-header-cell *matHeaderCellDef>পেমেন্ট পদ্ধতি</th>
       <td mat-cell *matCellDef="let element">
         {{ element.paymentMethod }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <th mat-header-cell *matHeaderCellDef>মোট পরিমাণ</th>
       <td mat-cell *matCellDef="let element">
         {{ element.total }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="view">
-      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <th mat-header-cell *matHeaderCellDef>একশন-সমূহ</th>
       <td mat-cell *matCellDef="let element" class="action-link">
         <button
           mat-icon-button

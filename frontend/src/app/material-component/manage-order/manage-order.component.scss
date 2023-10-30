@@ -25,10 +25,14 @@ mat-card {
   width: 100%;
   height: 100vh; /* Use viewport height for full height */
   overflow: auto; /* Add scrolling if necessary */
+}
+/* Adjust the padding and spacing of mat-cell elements in the table */
+.mat-cell {
+  padding: 8px; /* Adjust the padding as needed */
+}
 
-  /* Style the table within the responsive container */
-  table {
-    width: 100%; /* Make the table width 100% of the container */
-    height: 100%; /* Make the table height 100% of the container */
-  }
+/* Optionally, adjust the font size and other styles to make the table more compact */
+.mat-table {
+  font-size: 14px; /* Adjust the font size as needed */
+  /* You can add more styling here */
 }
