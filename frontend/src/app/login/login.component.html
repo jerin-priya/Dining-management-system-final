@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayout="row">
-    <span class="title-center">Login</span>
+    <span class="title-center">লগইন</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -16,10 +16,10 @@
           "
         >
           <span *ngIf="loginForm.controls.email.errors.required"
-            >This field is mandatory</span
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
           <span *ngIf="loginForm.controls.email.errors.pattern"
-            >This field is invalid</span
+            >এই ক্ষেত্রটি সঠিক নয়</span
           >
         </mat-error>
       </mat-form-field>
@@ -33,7 +33,7 @@
           "
         >
           <span *ngIf="loginForm.controls.password.errors"
-            >This field is mandatory</span
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
         </mat-error>
       </mat-form-field>
@@ -49,7 +49,7 @@
     (click)="handleSubmit()"
     [disabled]="!(loginForm.valid && loginForm.dirty)"
   >
-    Login
+    লগইন করুন
   </button>
   <button mat-raised-button color="primary" mat-dialog-close>Close</button>
 </mat-dialog-actions>

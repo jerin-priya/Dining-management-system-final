@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
     this.productForm = this.fb.group({
       name: [
         null,
-        [Validators.required, Validators.pattern(GlobalConstants.nameRegex)],
+        [Validators.required],
       ],
       categoryId: [null, [Validators.required]],
       price: [null, [Validators.required]],
