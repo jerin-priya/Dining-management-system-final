@@ -21,4 +21,12 @@ table{
     width: 20%; /* Set the table width to 20% of the parent element (which is now 100vw) */
     height: 20%; /* Set the table height to 20% of the parent element (which is now 100vh) */
   }
-  
+  .mat-header-cell, .mat-cell {
+    padding: 8px; /* Adjust the value to control the spacing */
+    text-align: left; /* You can adjust the text alignment as needed */
+  }
+
+  .mat-cell img {
+    width: 50px; /* Set the desired width for the images */
+    height: 50px; /* Set the desired height for the images */
+  }

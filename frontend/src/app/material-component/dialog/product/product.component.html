@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayout="row">
-    <span class="title-center">{{ dialogData.action }} Product</span>
+    <span class="title-center">{{ dialogData.action }} তালিকা সমূহ</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -9,7 +9,7 @@
     <div fxFlex fxLayout="column">
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill">
-          <mat-label>Name</mat-label>
+          <mat-label>নাম (Name)</mat-label>
           <input type="text" matInput formControlName="name" required />
           <mat-error
             *ngIf="
@@ -18,10 +18,10 @@
             "
           >
             <span *ngIf="productForm.controls.name.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
             <span *ngIf="productForm.controls.name.errors.pattern"
-              >This field is invalid</span
+              >এই ক্ষেত্রটি সঠিক নয়</span
             >
           </mat-error>
         </mat-form-field>
@@ -29,7 +29,7 @@
 
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill">
-          <mat-label>Category ID</mat-label>
+          <mat-label>খাবার বিভাগ আইডি</mat-label>
           <mat-select formControlName="categoryId">
             <mat-option
               *ngFor="let category of categories"
@@ -44,13 +44,13 @@
             "
           >
             <span *ngIf="productForm.controls.categoryId.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Price</mat-label>
+          <mat-label>মূল্য(Price)</mat-label>
           <input type="number" matInput formControlName="price" required />
           <mat-error
             *ngIf="
@@ -66,7 +66,7 @@
       </div>
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill">
-          <mat-label>Image URL</mat-label>
+          <mat-label>খাবারের ছবি </mat-label>
           <input type="text" matInput formControlName="imageURL" required />
           <mat-error
             *ngIf="productForm.controls.imageURL.touched && productForm.controls.imageURL.invalid"
@@ -78,7 +78,7 @@
       
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill">
-          <mat-label>Description</mat-label>
+          <mat-label>বিবরণ</mat-label>
           <input type="text" matInput formControlName="description" required />
           <mat-error
             *ngIf="
@@ -87,7 +87,7 @@
             "
           >
             <span *ngIf="productForm.controls.description.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
           </mat-error>
         </mat-form-field>

@@ -36,3 +36,7 @@ mat-card {
   font-size: 14px; /* Adjust the font size as needed */
   /* You can add more styling here */
 }
+.mat-header-cell, .mat-cell {
+  padding: 8px; /* Adjust the value to control the spacing */
+  text-align: left; /* You can adjust the text alignment as needed */
+}

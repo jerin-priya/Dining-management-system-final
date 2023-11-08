@@ -1,6 +1,6 @@
 <mat-card>
   <b>
-    <span>Manage Orders</span>
+    <span>অর্ডারসমূহ ম্যানেজ করুন</span>
     <button
       mat-flat-button
       color="primary"
@@ -8,20 +8,20 @@
       [disabled]="validateSubmit()"
       (click)="submitAction()"
     >
-      Submit & Get Bill
+    সাবমিট করুন এবং বিল ডাউনলোড করুন
     </button>
   </b>
 </mat-card>
 
 <hr />
 <mat-card>
-  <b><span>Customer Details:</span></b>
+  <b><span>ছাত্রীদের বিস্তারিত:</span></b>
 
   <form [formGroup]="manageOrderForm">
     <div fxFlex fxLayout="column">
       <div fxLayout="row wrap">
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Name</mat-label>
+          <mat-label>নাম(Name)</mat-label>
           <input type="text" matInput formControlName="name" required />
           <mat-error
             *ngIf="
@@ -30,17 +30,18 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.name.errors.required"
-              >This field is mandatory</span
+              >
+              এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
 
             <span *ngIf="manageOrderForm.controls.name.errors.pattern"
-              >This field is invalid</span
+              >এই ক্ষেত্রটি সঠিক নয়</span
             >
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Email</mat-label>
+          <mat-label>ইমেইল(Email)</mat-label>
           <input type="text" matInput formControlName="email" required />
           <mat-error
             *ngIf="
@@ -49,17 +50,17 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.email.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
 
             <span *ngIf="manageOrderForm.controls.email.errors.pattern"
-              >This field is invalid</span
+              >এই ক্ষেত্রটি সঠিক নয়</span
             >
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Contact Number</mat-label>
+          <mat-label>যোগাযোগের নম্বর</mat-label>
           <input
             type="text"
             matInput
@@ -73,17 +74,17 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.contactNumber.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
 
             <span *ngIf="manageOrderForm.controls.contactNumber.errors.pattern"
-              >This field is invalid</span
+              >এই ক্ষেত্রটি সঠিক নয়</span
             >
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Payment Method</mat-label>
+          <mat-label>মূল্যপরিশোধ পদ্ধতি</mat-label>
           <mat-select matInput formControlName="paymentMethod" required>
             <mat-option value="Cash">ক্যাশ</mat-option>
             <mat-option value="Card">কার্ড</mat-option>
@@ -97,7 +98,7 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.paymentMethod.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
           </mat-error>
         </mat-form-field>
@@ -108,12 +109,12 @@
 <hr />
 
 <mat-card>
-  <b><span>Select Product:</span></b>
+  <b><span>খাবার বিভাগ নির্বাচন করুন:</span></b>
   <form [formGroup]="manageOrderForm">
     <div fxFlex fxLayout="column">
       <div fxLayout="'row wrap">
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Category</mat-label>
+          <mat-label>তালিকা</mat-label>
           <mat-select
             formControlName="category"
             (selectionChange)="getProductsByCategory($event.value)"
@@ -132,17 +133,17 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.name.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
 
             <span *ngIf="manageOrderForm.controls.name.errors.pattern"
-              >This field is invalid</span
+              >এই ক্ষেত্রটি সঠিক নয়</span
             >
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Product</mat-label>
+          <mat-label>খাবারটি পছন্দ করুন</mat-label>
           <mat-select
             formControlName="product"
             (selectionChange)="getProductDetails($event.value)"
@@ -159,17 +160,17 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.name.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
 
             <span *ngIf="manageOrderForm.controls.name.errors.pattern"
-              >This field is invalid</span
+              >এই ক্ষেত্রটি সঠিক নয়</span
             >
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Price</mat-label>
+          <mat-label>মূল্য(Price)</mat-label>
           <input
             type="text"
             matInput
@@ -180,7 +181,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Quantity</mat-label>
+          <mat-label>পরিমাণ(Quantity)</mat-label>
           <input
             type="number"
             matInput
@@ -195,13 +196,13 @@
             "
           >
             <span *ngIf="manageOrderForm.controls.quantity.errors.required"
-              >This field is mandatory</span
+              >এই ক্ষেত্রটি বাধ্যতামূলক</span
             >
           </mat-error>
         </mat-form-field>
-
+:
         <mat-form-field appearance="fill" fxFlex>
-          <mat-label>Total</mat-label>
+          <mat-label>মোট </mat-label>
           <input
             type="text"
             matInput
@@ -220,11 +221,11 @@
       matTooltip="Add Order"
       (click)="add()"
     >
-      Add
+      যোগ করুন
     </button>
 
     <button mat-flat-button color="primary" class="float-right">
-      Total Amount: {{ totalAmount }}
+      সর্বমোট পরিমাণ: {{ totalAmount }}
     </button>
   </div>
 </mat-card>
@@ -232,32 +233,32 @@
 <div class="responsive_table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>নাম</th>
       <td mat-cell *matCellDef="let element">{{ element.name | titlecase }}</td>
     </ng-container>
 
     <ng-container matColumnDef="category">
-      <th mat-header-cell *matHeaderCellDef>Category Name</th>
+      <th mat-header-cell *matHeaderCellDef>খাবার বিভাগ</th>
       <td mat-cell *matCellDef="let element">{{ element.category }}</td>
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <th mat-header-cell *matHeaderCellDef>মূল্য</th>
       <td mat-cell *matCellDef="let element">{{ element.price }}</td>
     </ng-container>
 
     <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <th mat-header-cell *matHeaderCellDef>পরিমাণ:</th>
       <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
     </ng-container>
 
     <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <th mat-header-cell *matHeaderCellDef>মোট: </th>
       <td mat-cell *matCellDef="let element">{{ element.total }}</td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <th mat-header-cell *matHeaderCellDef>ডিলিট করুন</th>
       <td mat-cell *matCellDef="let element; let i = index" class="action-link">
         <button
           mat-icon-button

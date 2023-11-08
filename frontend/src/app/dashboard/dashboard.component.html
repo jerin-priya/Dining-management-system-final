@@ -6,7 +6,7 @@
     <div class="column">
       <div class="card">
         <div class="container">
-          <h2 class="title">Total Category:</h2>
+          <h2 class="title">মোট খাবার ক্যাটাগরি সংখ্যা</h2>
           <h1 class="title">{{ data?.category }}</h1>
           <p>
             <button class="button" [routerLink]="isAdmin ? '/cafe/category' : '/cafe/categoryUser'">
@@ -20,11 +20,11 @@
     <div class="column">
         <div class="card">
           <div class="container">
-            <h2 class="title">Total Products:</h2>
+            <h2 class="title">মোট খাবার তালিকা সংখ্যা</h2>
             <h1 class="title">{{ data?.product }}</h1>
             <p>
               <button class="button" [routerLink]="isAdmin ? '/cafe/product' : '/cafe/productUser'">
-                View Products
+                তালিকা দেখুন
               </button>
             </p>
           </div>
@@ -34,11 +34,11 @@
       <div class="column">
         <div class="card">
           <div class="container">
-            <h2 class="title">Total Bills:</h2>
+            <h2 class="title">মোট খাবার বিল সংখ্যা</h2>
             <h1 class="title">{{ data?.bill }}</h1>
             <p>
               <button class="button" [routerLink]="isAdmin ? '/cafe/bill' : '/cafe/billUser'">
-                View Bills
+                বিলগুলো দেখুন
               </button>
             </p>
           </div>
