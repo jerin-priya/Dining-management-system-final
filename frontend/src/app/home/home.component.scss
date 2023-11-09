@@ -389,10 +389,10 @@ a:hover::after {
     background-image: url("../../assets/img/3.jpeg");
   }
   75% {
-    background-image: url("../../assets/img/5.jpeg");
+    background-image: url("../../assets/img/5.jpg");
   }
   100% {
-    background-image: url("../../assets/img/1.jpg"); /* Loop back to the first image */
+    background-image: url("../../assets/img/1.jpeg"); /* Loop back to the first image */
   }
 }
 
