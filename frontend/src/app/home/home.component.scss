@@ -23,7 +23,7 @@
 
 // body {
 //   font-family: "Georgia", serif;
-//   background-color: #1b1b1b; 
+//   background-color: #1b1b1b;
 //   color: #fff;
 // }
 
@@ -91,8 +91,6 @@
 //   .wrapper {
 //     height: auto;
 //   }
-
- 
 
 //   a.logo {
 //     margin-top: 1.5em;
@@ -209,7 +207,6 @@
 //   background-color: #6e9aed; /* Change the background color when sticky */
 //   transition: background-color 0.3s ease;
 // }
-
 
 * {
   box-sizing: border-box;
@@ -352,8 +349,8 @@ a:hover::after {
   vertical-align: middle;
 }
 .bg-image {
-  background-image: url("../../assets/img/5.jpg");
-  background-color: rgb(0, 0, 0);
+  // background-image: url("../../assets/img/5.jpg");
+  // background-color: rgb(0, 0, 0);
   opacity: 0.9;
   height: 100vh;
 
@@ -361,7 +358,7 @@ a:hover::after {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  // animation: imageSlideshow 20s infinite;
+  animation: imageSlideshow 20s infinite;
 }
 
 /* Position text in the middle of the page/image */
@@ -377,26 +374,27 @@ a:hover::after {
   width: 70%;
   padding: 50px;
   text-align: center;
+  line-height: 1.5;
 }
 
 /* Keyframe animation for background image slideshow */
-// @keyframes imageSlideshow {
-//   0% {
-//     background-image: url("../../assets/img/1.jpeg"); /* Change the paths as needed */
-//   }
-//   25% {
-//     background-image: url("../../assets/img/2.jpeg");
-//   }
-//   50% {
-//     background-image: url("../../assets/img/3.jpeg");
-//   }
-//   75% {
-//     background-image: url("../../assets/img/4.jpeg");
-//   }
-//   100% {
-//     background-image: url("../../assets/img/2.jpeg"); /* Loop back to the first image */
-//   }
-// }
+@keyframes imageSlideshow {
+  0% {
+    background-image: url("../../assets/img/1.jpeg"); /* Change the paths as needed */
+  }
+  25% {
+    background-image: url("../../assets/img/2.jpeg");
+  }
+  50% {
+    background-image: url("../../assets/img/3.jpeg");
+  }
+  75% {
+    background-image: url("../../assets/img/5.jpeg");
+  }
+  100% {
+    background-image: url("../../assets/img/1.jpg"); /* Loop back to the first image */
+  }
+}
 
 /* Logo style */
 a.logo {

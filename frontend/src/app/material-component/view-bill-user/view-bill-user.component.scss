@@ -1,12 +1,12 @@
-.float-right{
+.float-right {
   float: right;
 }
 
-mat-card{
+mat-card {
   padding: 20px;
 }
 
-table{
+table {
   margin-top: 5px;
   width: 100%;
 }
@@ -20,4 +20,7 @@ table{
 table {
   width: 20%; /* Set the table width to 20% of the parent element (which is now 100vw) */
   height: 20%; /* Set the table height to 20% of the parent element (which is now 100vh) */
+}
+.mat-row {
+  border-bottom: 1px solid #ccc; /* Add a bottom border to each table row */
 }
