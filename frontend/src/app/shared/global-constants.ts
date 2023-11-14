@@ -9,13 +9,13 @@ export class GlobalConstants {
 
   public static productAdded: string = 'আইটেমটি সফলভাবে যোগ করা হয়েছে';
   
+  public static nameRegex: string = '^[A-Z\p{Bengali}][a-zA-Z\p{Bengali}]*$';
 
-  public static nameRegex: string = '[a-zA-Z0-9 ]*';
-  public static regnoRegex: string = '^[0-9]{1,10}$';
-  public static emailRegex: string =
-    '[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}';
+  public static regnoRegex: string = '^20[0-9]{8}$';
 
-  public static contactNumberRegex: string = '^[0-9]{11}$';
+  public static emailRegex: string = '^[A-Za-z][A-Za-z0-9._%+-]+@(?:gmail\\.com|sust\\.edu|(?:[A-Za-z0-9-]+\\.)+(?:com|edu|gov|org|net|int|mil|co|biz|aero|arpa|asia|coop|info|museum|name|pro|tel|travel))$';
+
+  public static contactNumberRegex: string = '^(?:\\+?88)?01[3-9]\\d{8}$';
 
   public static error: string = 'ভুল হয়েছে';
 }
