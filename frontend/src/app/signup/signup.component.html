@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayout="row">
-    <span class="title-center">Sign-up</span>
+    <span class="title-center">নিবন্ধন করুন</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -8,39 +8,55 @@
   <form [formGroup]="signupForm">
     <div fxFlex fxLayout="column">
       <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Name</mat-label>
-        <input type="text" matInput formControlName="name" required />
+        <mat-label>নামের প্রথম অংশ</mat-label>
+        <input type="text" matInput formControlName="firstName" required />
         <mat-error
           *ngIf="
-            signupForm.controls.name.touched && signupForm.controls.name.invalid
+            signupForm.controls.firstName.touched && signupForm.controls.firstName.invalid
           "
         >
-          <span *ngIf="signupForm.controls.name.errors.required"
-            >This field is mandatory</span
+          <span *ngIf="signupForm.controls.firstName.errors.required"
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
-          <span *ngIf="signupForm.controls.name.errors.pattern"
-            >This field is invalid</span
+          <span *ngIf="signupForm.controls.firstName.errors.pattern"
+            >এই ক্ষেত্রটি সঠিক নয়</span
           >
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Registration no:</mat-label>
+        <mat-label>নামের শেষ অংশ</mat-label>
+        <input type="text" matInput formControlName="lastName" required />
+        <mat-error
+          *ngIf="
+            signupForm.controls.lastName.touched && signupForm.controls.lastName.invalid
+          "
+        >
+          <span *ngIf="signupForm.controls.lastName.errors.required"
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
+          >
+          <span *ngIf="signupForm.controls.lastName.errors.pattern"
+            >এই ক্ষেত্রটি সঠিক নয়</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>রেজিস্ট্রেশন নংঃ </mat-label>
         <input type="text" matInput formControlName="registrationNo" required />
         <mat-error
           *ngIf="
-            signupForm.controls.name.touched && signupForm.controls.name.invalid
+            signupForm.controls.registrationNo.touched && signupForm.controls.registrationNo.invalid
           "
         >
-          <span *ngIf="signupForm.controls.name.errors.required"
-            >This field is mandatory</span
+          <span *ngIf="signupForm.controls.registrationNo.errors.required"
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
-          <span *ngIf="signupForm.controls.name.errors.pattern"
-            >This field is invalid</span
+          <span *ngIf="signupForm.controls.registrationNo.errors.pattern"
+            >এই ক্ষেত্রটি সঠিক নয়</span
           >
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Email</mat-label>
+        <mat-label>ইমেইল</mat-label>
         <input type="email" matInput formControlName="email" required />
         <mat-error
           *ngIf="
@@ -49,23 +65,23 @@
           "
         >
           <span *ngIf="signupForm.controls.email.errors.required"
-            >This field is mandatory</span
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
           <span *ngIf="signupForm.controls.email.errors.pattern"
-            >This field is invalid</span
+            >এই ক্ষেত্রটি সঠিক নয়</span
           >
         </mat-error>
       </mat-form-field>
 
        <mat-form-field appearance="fill" fxFlex> 
-        <mat-label>Phone Number</mat-label>
+        <mat-label>ফোন নম্বর</mat-label>
         <input type="text" matInput formControlName="contactNumber" required />
         <mat-error
           *ngIf="
           "
         >
           <span *ngIf="signupForm.controls.contactNumber.errors.required"
-            >This field is mandatory</span
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
           <span *ngIf="signupForm.controls.contactNumber.errors.pattern"
             >This field is invalid</span
@@ -77,9 +93,9 @@
         <mat-label>Phone Number</mat-label>
         <input type="text" matInput formControlName="contactNumber" />
       </mat-form-field> -->
-      
+     
       <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Department</mat-label>
+        <mat-label>শিক্ষা-বিভাগ</mat-label>
         <mat-select formControlName="department" required>
           <mat-option *ngFor="let department of departmentOptions" [value]="department">
             {{ department }}
@@ -91,13 +107,13 @@
             signupForm.controls.department.invalid
           "
         >
-          <span *ngIf="signupForm.controls.department.errors.required">This field is mandatory</span>
+          <span *ngIf="signupForm.controls.department.errors.required">এই ক্ষেত্রটি বাধ্যতামূলক</span>
         </mat-error>
       </mat-form-field>
       
 
       <mat-form-field appearance="fill" fxFlex>
-        <mat-label>Password</mat-label>
+        <mat-label>পাসওয়ার্ড</mat-label>
         <input type="password" matInput formControlName="password" required />
         <mat-error
           *ngIf="
@@ -105,7 +121,7 @@
           "
         >
           <span *ngIf="signupForm.controls.password.errors"
-            >This field is mandatory</span
+            >এই ক্ষেত্রটি বাধ্যতামূলক</span
           >
         </mat-error>
       </mat-form-field>
@@ -121,7 +137,7 @@
     (click)="handleSubmit()"
     [disabled]="!(signupForm.valid && signupForm.dirty)"
   >
-    Signup
+  নিবন্ধন করুন
   </button>
-  <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" mat-dialog-close>বন্ধ করুন</button>
 </mat-dialog-actions>
