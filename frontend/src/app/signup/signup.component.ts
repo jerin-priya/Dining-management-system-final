@@ -32,8 +32,8 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      name: [null, [Validators.required, Validators.pattern(GlobalConstants.nameRegex)],
-      ],
+      firstName: [null, [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
+      lastName: [null, [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
       registrationNo: [null, [Validators.required, Validators.pattern(GlobalConstants.regnoRegex)]],
       email: [null, [Validators.required, Validators.pattern(GlobalConstants.emailRegex)],
       ],
@@ -50,8 +50,9 @@ export class SignupComponent implements OnInit {
   handleSubmit() {
     this.ngxService.start();
     let formData = this.signupForm.value;
+    let fullName = formData.firstName + ' ' + formData.lastName;
     var data = {
-      name: formData.name,
+      name: fullName,
       registrationNo:formData.registrationNo,
       email: formData.email,
       phone: formData.contactNumber,
