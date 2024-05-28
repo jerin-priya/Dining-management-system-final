@@ -13,4 +13,5 @@ Developed a web application for dining management for Project 350. The stack use
 - **Backend:** ExpressJS
 - **Database:** MySQL
 
+## All Screenshots are available here
 
