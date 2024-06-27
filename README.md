@@ -1,5 +1,8 @@
 # Dining Management System
 
+[Watch the ScreenSjot of the project](https://github.com/jerin-priya/Dining-management-system-final/tree/main/Project%20Images)
+
+
 Developed a web application for dining management for Project 350. The stack used includes Angular for frontend development, ExpressJS for backend development, and MySQL for database management. My role involved managing the database along with backend development.
 
 ## Features
